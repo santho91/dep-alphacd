@@ -1,0 +1,34 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lwm-alpha
+  labels:
+    app: lwm-alpha
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: santo-alpha
+  template:
+    metadata:
+      labels:
+        app: santo-alpha
+    spec:
+      containers:
+        - name: cont1
+          image: 187296253525.dkr.ecr.us-east-1.amazonaws.com/santo-alphaimage:20-ce96f9d
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+          env:
+            - name: ENV
+              value: "dev"
+
