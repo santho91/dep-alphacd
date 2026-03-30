@@ -2,9 +2,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: lwm-alpha
+  name: santo-alpha-dep
   labels:
-    app: lwm-alpha
+    app: santo-alpha
 spec:
   replicas: 3
   selector:
